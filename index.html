@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#2196f3">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>App Covid-19</title>
+  <link rel="stylesheet" href="core/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+</head>
+<body>
+  <div id="app">
+    <div class="view view-main view-init safe-areas" data-master-detail-breakpoint="800" data-url="/">
+      <div class="page page-home">
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="dash-balance">
+            <div class="dash-content relative" style="padding-left: 15px;">
+              <h2 style="font-size: 16px;">Aplikasi Pantau Covid-19 <br><span style="color: #03A9F4">Real time</span></h2>
+            </div>
+          </div>
+          <div class="card card-shadow">
+            <div class="card-content card-content-padding" style="margin-top: 72px;">
+              <b>Data Dunia</b>
+              <div class="row">
+                <div class="col-33 demo-icon">
+                  <div class="demo-icon-icon col button button-large button-fill color-gradient-yellow menu">
+                    <img src="img/img/sad.svg" width="100%">
+                  </div>
+                  <div class="demo-icon-name" id="data-kasus" style="padding-top:10px;"></div>
+                  <div class="demo-icon-name" style="left: -20px;">Kasus</div>
+                </div>
+                <div class="col-33 demo-icon">
+                  <div class="demo-icon-icon col button button-large button-fill color-gradient-yellow menu">
+                    <img src="img/img/cry.svg" width="100%">
+                  </div>
+                  <div class="demo-icon-name" id="data-meninggal" style="padding-top:10px;"></div>
+                  <div class="demo-icon-name" style="left: -20px;">Meninggal</div>
+                </div>
+                <div class="col-33 demo-icon">
+                  <div class="demo-icon-icon col button button-large button-fill color-gradient-yellow menu">
+                    <img src="img/img/happy.svg" width="100%">
+                  </div>
+                  <div class="demo-icon-name" id="data-sembuh" style="padding-top:10px;"></div>
+                  <div class="demo-icon-name" style="left: -20px;">Sembuh</div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-shadow">
+            <div class="card-content card-content-padding">
+              <b>Data Indonesia</b>
+              <div class="row">
+                <div class="col-50 demo-icon left" >
+                <div id="kasus"> </div>
+                <div id="meninggal"> </div>
+                <div id="sembuh"> </div>
+                <div id="today"> </div>
+                </div>
+                <div class="col-50 demo-icon">
+                  <div class="demo-icon-icon col button button-large button-fill color-gradient-yellow menu">
+                    <img src="img/img/indonesia.svg" width="100%">
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--
+          <div class="card card-shadow">
+            <div class="card-content card-content-padding">
+              <b>Data Provinsi Jawa Timur</b>
+              <div class="row">
+                <div class="col-50 demo-icon">
+                  <div id="jati-kasus"> </div>
+                  <div id="jatim-meninggal"> </div>
+                  <div id="jatim-sembuh"> </div>
+                </div>
+                <div class="col-50 demo-icon">
+                  <div class="demo-icon-icon">
+                    <img src="img/jatim.svg" width="40%">
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          -->
+
+          <div class="card card-shadow" style="border-radius: 15px; padding-top: 0px;">
+            <div class="card-content card-content-padding">
+              <a href="/help/">
+              <div class="row">
+                <div class="col-20 demo-icon">
+                  <i class="icon material-icons md-only" style="color: #009688; font-size: 65px;">help</i>
+                </div>
+                <div class="col-50 demo-icon">
+                  <div class="left"><b style="font-size: 20px;">Apa yang bisa kita lakukan?</b>
+                  </div>
+                </div>
+                <div class="col-30 demo-icon">
+                  <div class="demo-icon-icon color-white">
+                    <i class="material-icons" style="font-size: 70px; color: #d1d1d1;">chevron_right</i>
+                  </div>
+                  
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div class="block">
+              <p style="text-align: center; color: #9E9E9E; font-size: 1px;">
+                © 2020 • Hak Cipta Dilindungi<br>
+                Dibuat dengan ♥ oleh Alfian Taufani
+              </p>  
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="core/js/framework7.bundle.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/jquery-3.5.1.min.js"></script>
+</body>
+</html>
+<script>
+
+$(document).ready(function () {
+
+
+    semuaData();//data global
+    dataNegara();// data indonesia
+    //dataProvinsi();// data Provinsi
+
+    setInterval(function(){
+      semuaData();
+      dataNegara();
+      //dataProvinsi();
+    }, 1000);
+
+    function semuaData() {
+        app.request({
+        url: 'https://coronavirus-19-api.herokuapp.com/all',
+        dataType: 'json',
+        success : function(data) {
+          try{
+            var json = data;
+            var kasus = data.cases;
+            var meninggal = data.deaths;
+            var sembuh = data.recovered;
+
+
+
+            $('#data-kasus').html('<b>'+ new Intl.NumberFormat(['ban', 'id']).format(kasus) +'</b>');
+            $('#data-meninggal').html('<b>'+ new Intl.NumberFormat(['ban', 'id']).format(meninggal) +'</b>');
+            $('#data-sembuh').html('<b>'+ new Intl.NumberFormat(['ban', 'id']).format(sembuh) +'</b>');
+
+          }catch{
+            app.dialog.alert('Data tidak di temukan. Cek internet kamu!');
+          }
+        }
+      })
+    }
+
+    function dataNegara() {
+        app.request({
+        url: 'https://coronavirus-19-api.herokuapp.com/countries',
+        dataType: 'json',
+        success : function(data) {
+          try{
+            var json = data;
+            var html = [];
+
+            if (json.length > 0) {
+              var i;
+              for (i = 0; i < json.length; i++) {
+                var dataNegara = json[i];
+                var namaNegara = dataNegara.country;
+
+                if(namaNegara === 'Indonesia'){
+                  var kasus = dataNegara.cases;
+                  var meninggal = dataNegara.deaths;
+                  var sembuh = dataNegara.recovered;
+                  var today = dataNegara.todayCases;
+
+                  $('#kasus').html('Positif : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(kasus) +'</b> Orang');
+                  $('#meninggal').html('Meninggal : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(meninggal) +'</b> Orang');
+                  $('#sembuh').html('Sembuh : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(sembuh) +'</b> Orang');
+                  $('#today').html(' Hari ini : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(today) +'</b> Orang');
+
+                }
+              }
+            }
+
+          }catch{
+            alert('Data tidak di temukan');
+          }
+        }
+      })
+    }
+
+    /*
+    function dataProvinsi() {
+        app.request({
+        url: 'https://api.kawalcorona.com/indonesia/provinsi/',
+        dataType: 'json',
+        success : function(data) {
+          try{
+            var json = data;
+            var html = [];
+
+            if (json.length > 0) {
+              var i;
+              for (i = 0; i < json.length; i++) {
+                var dataProvinsi = json[i];
+                var namaProvisi = dataProvinsi.Provinsi;
+
+                if(namaProvisi === 'Jawa Timur'){
+                  var kasus = dataProvinsi.Kasus_Posi;
+                  var meninggal = dataProvinsi.Kasus_Meni;
+                  var sembuh = dataProvinsi.Kasus_Semb;
+
+                  window.alert(kasus);
+                  $('#jatim-kasus').html('Positif : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(kasus) +'</b> Orang');
+                  $('#jatim-meninggal').html('Meninggal : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(meninggal) +'</b> Orang');
+                  $('#jatim-sembuh').html('Sembuh : <b>'+ new Intl.NumberFormat(['ban', 'id']).format(sembuh) +'</b> Orang');
+
+                }
+              }
+            }
+
+          }catch{
+            alert('Data tidak di temukan');
+          }
+        }
+      })
+    }
+    */
+
+});
+    
+  </script>

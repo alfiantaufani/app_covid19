@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id      = "com.sia.tes"
+    version   = "1.0.0"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:cdv = "http://cordova.apache.org/ns/1.0">
+
+    <name>Pantau Covid-19</name>
+
+    <description>
+      Aplikasi Pantau Covid-19
+    </description>
+
+    <author href="https://unwaha.ac.id" email="alfiantauafani@gmail.com">
+      Pantau Covid-19
+    </author>
+
+    <icon src="img/f7-icon.png"/>
+    <access origin="*"/>
+    <allow-navigation href="*"/>
+    <allow-intent href="*"/>
+</widget>
